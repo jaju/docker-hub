@@ -8,4 +8,6 @@ ENV LANG en_US.utf8
 
 RUN apt-get install -y postgresql-client curl jq openssh-client telnet iputils-ping
 
+ADD ./support/bb /usr/local/bin/bb
+
 #RUN rm -rf /var/lib/apt/lists/*
