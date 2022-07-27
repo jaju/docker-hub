@@ -1,7 +1,7 @@
 docker-user = jajuatsahaj
 
 %:
-	docker build -t linux-base:latest -f $*-dockerfile .
+	docker build -t $*:latest -f $*-dockerfile .
 
 %-publish:
 	docker tag $*:latest $(docker-user)/$*:latest
