@@ -1,0 +1,5 @@
+FROM eclipse-temurin:17-alpine as jdk-base
+
+RUN apk --no-cache add \
+    curl bind-tools netcat-openbsd fish jq coreutils \
+    bash inetutils-telnet iputils postgresql-client
