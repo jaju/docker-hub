@@ -1,5 +1,5 @@
 #/bin/bash -x
-VERSION=0.9.160
+VERSION=1.3.176
 URL=https://github.com/babashka/babashka/releases/download/v${VERSION}/babashka-${VERSION}-linux-amd64-static.tar.gz
 LOCALFILE=bb-${VERSION}.tar.gz
 

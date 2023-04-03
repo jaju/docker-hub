@@ -2,11 +2,12 @@ FROM ubuntu:jammy
 
 RUN set -x \
     && apt-get update && apt-get install -y --no-install-recommends ca-certificates
-RUN apt-get update && apt-get install -y locales  \
+RUN apt-get install -y locales \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
-RUN apt-get install -y postgresql-client curl jq openssh-client telnet iputils-ping
+RUN apt-get install -y postgresql-client curl jq openssh-client telnet iputils-ping \
+    rsync lynx kafkacat gnupg apt-transport-https rlwrap tmux dnsutils less vim
 
 ADD ./support/bb /usr/local/bin/bb
 

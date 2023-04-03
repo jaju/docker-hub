@@ -1,7 +1,14 @@
-FROM eclipse-temurin:17 as jdk-base
+#FROM eclipse-temurin:17 as jdk-base
+FROM jajuatsahaj/linux-base:latest
 
-RUN set -x \
-    && apt-get update && apt-get install -y --no-install-recommends ca-certificates
-RUN apt-get install -y locales postgresql-client curl jq openssh-client telnet iputils-ping rsync lynx \
-    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-ENV LANG en_US.utf8
+RUN apt-get install -y openjdk-17-jdk-headless
+
+ARG CLOJUREVER=1.11.1.1267
+RUN curl -O https://download.clojure.org/install/linux-install-$CLOJUREVER.sh \
+    && chmod +x linux-install-$CLOJUREVER.sh \
+    && ./linux-install-$CLOJUREVER.sh \
+    && rm -f ./linux-install-$CLOJUREVER.sh
+
+ADD ./support/bb /usr/local/bin/bb
+ADD ./support/kafka /usr/local/kafka
+ADD ./support/99-kafka-path.sh /etc/profile.d
