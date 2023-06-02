@@ -1,2 +1,3 @@
 /support/bb*
+/support/kafka
 /**/*.tar.gz
