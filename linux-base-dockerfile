@@ -1,4 +1,6 @@
-FROM ubuntu:lunar
+ARG UBUNTU_REL $UBUNTU_REL
+
+FROM ubuntu:$UBUNTU_REL
 
 RUN set -x \
     && apt-get update && apt-get install -y --no-install-recommends ca-certificates

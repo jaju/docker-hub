@@ -1,6 +1,6 @@
 #/bin/bash -x
 SCALA_VERSION=2.13
-VERSION=3.5.0
+VERSION=3.7.0
 URL=https://dlcdn.apache.org/kafka/${VERSION}/kafka_${SCALA_VERSION}-${VERSION}.tgz
 LOCALFILE=kafka-${VERSION}.tar.gz
 

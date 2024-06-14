@@ -1,0 +1,12 @@
+FROM jajuatsahaj/linux-base:latest
+
+RUN apt-get install -y openjdk-21-jdk-headless
+
+ARG CLOJURE_VERSION $CLOJURE_VERSION
+RUN curl -O https://download.clojure.org/install/linux-install-$CLOJURE_VERSION.sh \
+    && chmod +x linux-install-$CLOJURE_VERSION.sh \
+    && ./linux-install-$CLOJURE_VERSION.sh \
+    && rm -f ./linux-install-$CLOJURE_VERSION.sh
+
+ADD ./support/kafka /usr/local/kafka
+ADD ./support/99-kafka-path.sh /etc/profile.d

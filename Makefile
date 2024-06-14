@@ -1,7 +1,12 @@
-docker-user = jajuatsahaj
+ubuntu-rel = lunar
+docker-user = jaju
+clojure-version = 1.11.3.1463
 
 %:
-	docker build -t $*:latest -f $*-dockerfile .
+	CLOJURE_VERSION=$(clojure-version) docker build -t $*:latest -f $*-dockerfile \
+									--build-arg CLOJURE_VERSION=$(clojure-version) \
+									--build-arg UBUNTU_REL=$(ubuntu-rel) \
+									.
 
 %-publish:
 	docker tag $*:latest $(docker-user)/$*:latest
