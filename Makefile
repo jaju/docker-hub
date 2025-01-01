@@ -1,4 +1,4 @@
-ubuntu-rel = lunar
+ubuntu-rel = noble
 docker-user = jaju
 clojure-version = 1.11.3.1463
 
